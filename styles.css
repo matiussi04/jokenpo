@@ -142,7 +142,7 @@ header .score-container .score{
 }
 
 .game .picked-container .bg-gradient .picked img{
-    height: 6rem;
+    height: 50%;
 }
 
 .game .paper .bg-gradient{
