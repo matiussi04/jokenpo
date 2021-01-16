@@ -1,0 +1,383 @@
+:root{
+    /*Primary*/
+    --Scissors1: hsl(39, 89%, 49%);
+    --Scissors2:  hsl(40, 84%, 53%);
+    --Paper1: hsl(230, 89%, 62%);
+    --Paper2: hsl(230, 89%, 65%);
+    --Rock1: hsl(349, 71%, 52%);
+    --Rock2: hsl(349, 70%, 56%);
+    --Lizard-Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+    --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+    /*Neutro*/
+    --Dark-Text: hsl(229, 25%, 31%);
+    --Score-Text: hsl(229, 64%, 46%);
+    --Header-Outline: hsl(217, 16%, 45%);
+
+    /*BG*/
+    --bg-gradient1: hsl(214, 47%, 23%);
+    --bg-gradient2: hsl(237, 49%, 15%);
+
+    font-size: 62.5%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, var(--bg-gradient1), var(--bg-gradient2));
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+button{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    cursor: pointer;
+}
+
+header{
+    width: 30rem;
+    height: 9rem;
+    border: solid 0.3rem var(--Header-Outline);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+
+header .logo{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+header .logo img{
+    width: 50%;
+    height: 70%;
+}
+
+header .score-container{
+    width: 8rem;
+    background: white;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header .score-container h3{
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    color: var(--Score-Text);
+}
+
+header .score-container .score{
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--Dark-Text);
+}
+
+.game section{
+    width: 32rem;
+    display: flex;
+}
+
+.game .play-screen{
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.game .picked-container{
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.game .play-screen .picked-container{
+    cursor: pointer;
+}
+
+.game .picked-container .bg-gradient{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .play-screen .picked-container:first-child{
+    margin-right: 7.5rem;
+}
+
+.game .play-screen .picked-container:last-child{
+    margin-top: 3rem;
+}
+
+.game .picked-container .bg-gradient .picked{
+    width: 75%;
+    height: 75%;
+    background: white;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .picked-container .bg-gradient .picked img{
+    height: 6rem;
+}
+
+.game .paper .bg-gradient{
+    background: linear-gradient(to bottom, var(--Paper1), var(--Paper2));
+}
+
+.game .scissors .bg-gradient{
+    background: linear-gradient(to bottom, var(--Scissors1), var(--Scissors2));
+}
+
+.game .rock .bg-gradient{
+    background: linear-gradient(to bottom, var(--Rock1), var(--Rock2));
+}
+
+.game .play-screen .triangulo{
+    z-index: -1;
+    position: absolute;
+    top: 5rem;
+}
+
+.game .play-screen .triangulo img{
+    height: 19rem;
+}
+
+/*RESULT*/
+
+.game .result-screen{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .result-screen .pickeds-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+}
+
+.game .result-screen .pickeds-container > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game .result-screen .pickeds-container .picked-container .bg-gradient{
+    width: 0;
+    height: 0;
+    transition: all 0.7s;
+}
+
+.game .result-screen .pickeds-container .show-picked .bg-gradient{
+    width: 100%;
+    height: 100%;
+}
+
+.game .result-screen .pickeds-container h2{
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.game .result-screen .result-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+.game .show-result .result-container{
+    width: 100%;
+}
+
+.game .result-screen .result-container h1{
+    font-size: 6rem;
+    color: white;
+    white-space: nowrap;
+}
+
+.game .result-screen .result-container .play-again{
+    text-transform: uppercase;
+    width: 20rem;
+    height: 4.5rem;
+    border-radius: 0.8rem;
+    color: var(--Dark-Text);
+    font-size: 1.6rem;
+    letter-spacing: 0.3rem;
+    margin-top: 5rem;
+}
+
+.game .off{
+    display: none;
+}
+
+.rules-button button{
+    width: 12rem;
+    height: 4rem;
+    background: none;
+    border: solid 0.1rem white;
+    border-radius: 0.8rem;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 5rem;
+}
+
+.rules.active{
+    top: 0;
+}
+
+.rules{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    background: white;
+    z-index: 3;
+    text-align: center;
+    top: -100%;
+    transition: 0.5s;
+}
+
+.rules.active h1{
+    font-size: 3rem;
+    color: var(--Dark-Text);
+    margin-top: 5rem;
+}
+
+.rules.active > img{
+    width: 30rem;
+    height: 25rem;
+}
+
+.rules button{
+    background: none;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 1100px){
+    header{
+        width: 70rem;
+        height: 12rem;
+        padding: 1rem;
+        padding-right: 2.5rem;
+        margin-top: 4rem;
+    }
+
+    header .logo img{
+        width: 80%;
+        height: 80%;
+    }
+
+    header .score-container{
+        width: 14rem;
+    }
+
+    header .score-container h3{
+        margin-top: 0.7rem;
+        font-size: 1.5rem;
+    }
+
+    header .score-container .score{
+        font-size: 6rem;
+    }
+
+    .game .play-screen{
+        width: 48rem;
+    }
+
+    .game .play-screen .picked-container{
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .game .play-screen .picked-container .bg-gradient .picked img{
+        height: 7rem;
+    }
+
+    .game .result-screen{
+        width: 55rem;
+        justify-content: flex-end;
+        transition: 0.9s;
+    }
+
+    .game .result-screen .pickeds-container{
+        margin: 0;
+        margin-top: 2rem;
+    }
+
+    .game .result-screen .pickeds-container > div{
+        flex-direction: column-reverse;
+    }
+
+    .game .result-screen .pickeds-container h2{
+        margin: 0;
+        margin-bottom: 6rem;
+        font-size: 2rem;
+    }
+
+    .game .result-screen .pickeds-container .picked-container{
+        width: 24rem;
+        height: 24rem;
+    }
+
+    .game .result-screen .pickeds-container .picked-container .bg-gradient .picked img{
+        height: 50%;
+    }
+
+    .game .result-screen .result-container{
+        position: absolute;
+        margin-bottom: 6.5rem;
+    }
+
+    .game .result-screen .result-container .play-again{
+        margin-top: 0;
+    }
+
+    .game .show-result{
+        width: 90rem;
+    }
+
+    .rules-button{
+        align-self: flex-end;
+    }
+
+    .rules-button button{
+        margin: 0 5rem 3rem 0;
+    }
+}
